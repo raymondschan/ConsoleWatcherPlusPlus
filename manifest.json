@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "Turn Watcher",
+  "description": "Turn Watcher is a light dashboard to monitor your running ad campaign on Turn.",
+  "version": "1.0",
+
+  "permissions": [
+    "https://www.turn.com/", "https://api.twitter.com/", "notifications", "activeTab", "tabs"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/icon.png",
+    "default_popup": "main.html"
+  },
+
+  "content_security_policy": "script-src 'unsafe-eval'; object-src 'self'"
+}

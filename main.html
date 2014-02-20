@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/handlebars-v1.3.0.js"></script>
+		
+		<link href="css/jquery-ui.min.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="css/style.css" media="all" rel="stylesheet" type="text/css"/>
+
+	</head>
+	<body>
+		<div class="header">
+			<div style="background:url('icons/header.png') no-repeat;background-size:300px;width:320px;height:43px;margin:5px;">
+				<div style="float:right;">
+					<div><img src="icons/refresh.png" id="app-title" /></div>
+					<div><a href="settings.html"><img src="icons/settings.png" /></a></div>
+				</div>
+				<div class="title">console watcher</div>
+
+			</div>
+		</div>
+		<div class="body-container">
+
+			<div id="view-templates" style="display:none;">
+				<div id="template-io-view">
+					{{#each ios}}
+					<div class="io-container">
+						<div id="c_status" class="io-view" style="border-left:6px solid rgb(10, 128, 104);">
+							<div class="name">
+								<span>{{title}}</span>
+								<span style="float:right;font-size:10px;">{{startDate}} - {{endDate}}</span>
+							</div>
+							<div class="desc">{{desc}}</div>
+						</div>
+						<div id="c_details" class="io-details" style="display:none;height:210px;">
+							<div class="slider" style="height:190px;width:320px;">
+							  <ul>
+							    <li>
+							    	<div>
+							    		<div style="float:left;width:150px;height: 83px;text-align:center;border: 1px solid #F7F7F7;padding: 5px;background: #FCFCFC;"><img src="icons/turn/money.png" style="height:40px;" /><div style="margin-top:10px;">Current spend</div></div>
+							    		<div style="float:left;width:150px;height: 83px;text-align:center;border: 1px solid #F7F7F7;padding: 5px;background: #FCFCFC;"><img src="icons/turn/channels.png" style="height:40px;" /><div style="margin-top:10px;">Media Channels</div></div>
+							    		<div style="float:left;width:150px;height: 83px;text-align:center;border: 1px solid #F7F7F7;padding: 5px;background: #FCFCFC;"><img src="icons/turn/gauge.png" style="height:40px;" /><div style="margin-top:10px;">Current spend</div></div>
+							    		<div style="float:left;width:150px;height: 83px;text-align:center;border: 1px solid #F7F7F7;padding: 5px;background: #FCFCFC;"><img src="icons/turn/page.png" style="height:40px;" /><div style="margin-top:10px;">Media Channels</div></div>
+							    	</div>
+							    </li>
+							    <li>
+							    	<div id="io-stats">
+							    		{{#applyTemplate "template-io-stats" stats="test"}}
+          									{{topLevelVar}}
+        								{{/applyTemplate }}
+							    	</div>
+							    </li>
+							  </ul>  
+							</div>
+							<div>
+								<a href="#" class="control_prev" style="float:left;margin-left:20px;font-size: 30px;text-decoration: none;line-height: 20px;">&laquo;</a>
+								<a href="#" class="control_next" style="float:right;margin-right:20px;font-size: 30px;text-decoration: none;line-height: 20px;">&raquo;</a>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+
+
+				<div id="template-io-stats">
+					<div style="width:150px;font-size:10px;padding:5px;display:inline-block;">
+						<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" 
+				    		aria-valuemin="0" aria-valuemax="100" aria-valuenow="37" style="width:100px;height:15px;display:inline-block;">
+				    		<div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 37%;"></div>
+				    	</div>
+				    	<div style="display:inline-block;width:40px;">37%</div>
+				    	<div>
+				    		Yesterday spend
+				    	</div>
+			    	</div>
+
+					<div style="width:150px;font-size:10px;padding:5px;display:inline-block;">
+						<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" 
+				    		aria-valuemin="0" aria-valuemax="100" aria-valuenow="37" style="width:100px;height:15px;display:inline-block;">
+				    		<div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 37%;background-color:#777"></div>
+				    	</div>
+				    	<div style="display:inline-block;width:40px;">37%</div>
+				    	<div>
+				    		Yesterday spend
+				    	</div>
+			    	</div>
+
+					<div style="width:150px;font-size:10px;padding:5px;display:inline-block;">
+						<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" 
+				    		aria-valuemin="0" aria-valuemax="100" aria-valuenow="37" style="width:100px;height:15px;display:inline-block;">
+				    		<div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 37%;"></div>
+				    	</div>
+				    	<div style="display:inline-block;width:40px;">37%</div>
+				    	<div>
+				    		Yesterday spend
+				    	</div>
+			    	</div>			    	
+
+				</div>
+
+			</div>
+
+			<div class="io-list">
+			<div class="io-container">
+					
+			</div>
+			</div>
+		</div>
+		<script src="app/application.js"></script>
+	</body>
+</html>
