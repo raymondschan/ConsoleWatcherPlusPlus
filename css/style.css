@@ -5,16 +5,16 @@ html,body {
 	font-weight: 100;
 	font-family: Helvetica, Arial;
 	font-size: 14px;
-  width:340px;
+  width:360px;
 }
 
 * { _noFocusLine: expression(this.hideFocus=true); }
 ::-moz-focus-inner {border:0;}                      
 :focus {outline:none;}                              
 
-body { }
+a:hover, a:visited {color:black;}
 
-.body-container { height:420px;overflow: auto;overflow-x: none; }
+.body-container { height:480px;overflow: auto;overflow-x: none; }
 
 .io-container .io-view { margin:0;padding:5px 10px;border-bottom: 1px solid #F8F8F8;}
 .io-container .io-view:hover {background: #FCFCFC;}

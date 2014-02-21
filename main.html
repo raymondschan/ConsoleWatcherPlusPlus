@@ -22,7 +22,6 @@
 		</div>
 
 		<div class="datahub-container"></div>
-
 		<div class="body-container">
 			<div id="view-templates" style="display:none;">
 				<div id="template-no-bookmarks">
@@ -80,7 +79,20 @@
 
 				<div id="template-delivery">
 					<div class="show-controls"><img src="icons/arrow_down.png" style="padding-top: 6px;opacity: 0.4;" /></div>
-					Template for delivery info.
+					<div>
+						{{#each lis}}
+							<div style="border-bottom: 1px solid #EFEFEF;padding: 5px;font-weight: bold;color: #666;">
+								Line item {{li}}:
+							</div>
+							{{#each causes}}
+								<div style="padding-right:20px;padding-left:20px;padding-top:12px;font-size:11px;">&nbsp;{{#exclusion .}}{{/exclusion}}</div>
+							{{/each}}
+						{{/each}}
+						<center>
+							<br/>
+							{{info}}
+						</center>
+					</div>
 				</div>
 
 				<div id="template-activity">
@@ -95,12 +107,17 @@
 							{{field_name}} set to {{new_value}} 
 						</div>
 					</div>
-					{{/each}}												
+					{{/each}}
+					<div>
+						<center>
+							<br/>
+							{{info}}
+						</center>
+					</div>												
 				</div>
 
 
 				<div id="template-datahub">
-					<div class="show-controls"><img src="icons/arrow_down.png" style="padding-top: 6px;opacity: 0.4;" /></div>
 					{{#each jobs}}
 					<div style="border-bottom: 1px solid #E2E2E2;padding: 5px;background: -webkit-gradient(linear, left bottom, left top, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(255, 255, 255, 1)));">
 						<div style="font-size:13px;">
@@ -114,7 +131,8 @@
 						</div>
 						<div style="display:inline-block;"></div>
 					</div>
-					{{/each}}												
+					{{/each}}
+					<div class="show-controls"><img src="icons/arrow_down.png" style="opacity: 0.4;-webkit-transform:rotate(180deg);margin-top: 7px;" /></div>
 				</div>				
 
 				<div id="template-kpi-metrics">
@@ -188,7 +206,9 @@
 
 			<div class="io-list"></div>
 		</div>
-		<div class="footer" style="margin-bottom:5px;text-align:right;margin-right:5px;margin-top:15px;">
+
+
+		<div class="footer" style="margin-bottom:5px;text-align:right;margin-right:15px;margin-top:15px;">
 			<img src="icons/poweredBy.png" />
 		</div>
 		<script src="app/application.js"></script>
