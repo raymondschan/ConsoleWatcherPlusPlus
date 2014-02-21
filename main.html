@@ -98,12 +98,83 @@
 
 				</div>
 
+				<div id="template-kpi-metrics">
+					<table>
+						<tr>
+							<th>Impressions</th>
+							<th>Clicks</th>
+							<th>Actions</th>
+							<th>Spend</th>
+						</tr>
+						<tr>
+							<td>{{ impressions }}</td>
+							<td>{{ clicks }}</td>
+							<td>{{ actions }}</td>
+							<td>{{ spend }}</td>
+						</tr>
+					</table>
+					<div class="budget-schedule">
+						Budget ({{ budgetSchedule.startDate }} - {{ budgetSchedule.endDate}}): ${{ budgetSchedule.budget }}
+					</div>
+					<div class="needed-spend bar-graph">
+						<label>Needed Spend</label>
+						<div class="progress-bar-wrapper">
+							<div class="progress-bar">
+								<div class="inner-progress-bar"></div>
+							</div>
+						</div>
+						<div class="bar-value">
+							${{ neededSpend.remainder }}/day
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="yesterday bar-graph">
+						<label>Yesterday</label>
+						<div class="progress-bar-wrapper">
+							<div class="progress-bar">
+								<div class="inner-progress-bar"></div>
+							</div>
+						</div>
+						<div class="bar-value">
+							${{ yesterdaySpend.remainder }}/day
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="goal bar-graph">
+						<label>Goal</label>
+						<div class="progress-bar-wrapper">
+							<div class="progress-bar">
+								<div class="inner-progress-bar"></div>
+							</div>
+						</div>
+						<div class="bar-value">
+							${{ goal.remainder }}/day
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="actual bar-graph">
+						<label>Actual</label>
+						<div class="progress-bar-wrapper">
+							<div class="progress-bar">
+								<div class="inner-progress-bar"></div>
+							</div>
+						</div>
+						<div class="bar-value">
+							${{ actual.remainder }}/day
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+
 			</div>
 
 			<div class="io-list">
 			<div class="io-container">
 					
 			</div>
+			</div>
+
+			<div class="kpi-metrics">
 			</div>
 		</div>
 		<script src="app/application.js"></script>

@@ -40,3 +40,71 @@ body { }
   width: 330px;
   height: 180px;
 }
+
+.clear {
+  clear: both;
+}
+
+.kpi-metrics {
+  padding: 10px;
+}
+
+.kpi-metrics table {
+  width: 100%;
+  border-spacing: 0px;
+}
+
+.kpi-metrics th {
+  color: #989899;
+  text-transform: uppercase;
+  font-size: 11px;
+  padding: 10px 10px 0 10px;
+  text-align: left;
+  font-weight: normal;
+}
+
+.kpi-metrics td {
+  color: #182227;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.kpi-metrics .budget-schedule {
+  color: #464f54;
+  font-size: 13px;
+  line-height: 40px;
+}
+
+.kpi-metrics .bar-graph {
+  margin-bottom: 10px;
+}
+
+.kpi-metrics .bar-graph label {
+  float: left;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding-right: 10px;
+  color: #797878;
+  width: 55px;
+  line-height: 12px;
+}
+
+.kpi-metrics .progress-bar-wrapper {
+  float: left;
+  width: 170px;
+}
+
+.kpi-metrics .inner-progress-bar {
+  background: -webkit-gradient(linear,left top,left bottom,from(#ccc),to(#8e8e8e));  
+  height: 30px;
+}
+
+.kpi-metrics .bar-value {
+  font-weight: bold;
+  color: #515960;
+  line-height: 30px;
+  float: right;
+  font-size: 12px;
+  text-align: right;
+  width: 70px;
+}
