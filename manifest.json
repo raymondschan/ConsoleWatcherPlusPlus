@@ -7,7 +7,7 @@
 
   "permissions": [
     "https://www.turn.com/", "https://api.twitter.com/", "notifications", "activeTab", "tabs",
-    "https://console.turn.com/"
+    "https://console.turn.com/", "https://localhost.turn.com:8443/"
   ],
 
   "browser_action": {

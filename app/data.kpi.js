@@ -6,60 +6,25 @@ onmessage = function (oEvent) {
 	//		... jsonData ...
 	//	});
 	if(cmd === 'getPackagSummary') {
-		console.log("Going in");
 		var insertionOrderId = oEvent.data.insertionOrderId;
 		var packagId = oEvent.data.packagId;
 
-		(function(insertionOrderId, packagId) {
+		(function(packagId) {
 			$.ajax({
-				url: 'https://console.turn.com/jax/ioSummaryPackages/details/' + insertionOrderId,
+				url: 'https://localhost.turn.corp:8443/jax/ioSummaryPackages/turnWatcher/packag/' + packagId,
 				type: 'GET',
 				data: {
-					packagIds: packagId,
 					tz: 'market'
 				},
 				dataType: 'json'
 			}).done(function(jsonOutput) {
-				var details = {};
-				if(jsonOutput.hasOwnProperty(packagId)) {
-					details = jsonOutput[packagId];
-	
-					// Convert the following IDs to their respective string representations
-					details.goalType = getGoalType(details.goalType);
-					details.pacingType = getPacingType(details.pacingTypeId);
-				}
-				details.updatedDate = jsonOutput.updatedDate;
-	
-				postMessage({type: 'packagSummary', output: details});
+				postMessage({
+					type: 'packagSummary',
+					output: jsonOutput || {}
+				});
 			});
-		})(insertionOrderId, packagId);
+		})(packagId);
 	}
-
-	var getGoalType = function(goalTypeId) {
-		switch(goalTypeId) {
-			case 1:
-				return 'CPA';
-			case 2:
-				return 'CPC';
-			case 3:
-				return 'VIDEO_ENGAGEMENT';
-			default:
-				return null;
-		}
-	};
-
-	var getPacingType = function(pacingTypeId) {
-		switch(pacingTypeId) {
-			case 1:
-				return 'ASAP';
-			case 2:
-				return 'Even throughout period';
-			case 3:
-				return 'DAILY';
-			default:
-				return null;
-		}
-	};
 
 // Sample output:
 //{
