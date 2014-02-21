@@ -87,7 +87,7 @@ var ConsoleApplication = function() {
 			impressions: 41923,
 			clicks: 129,
 			actions: 5,
-			spend: 3021,
+			advertiserInvoice: 3021,
 			neededSpend: {
 				percent: 1,
 				remainder: 6107
