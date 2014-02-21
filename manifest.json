@@ -6,7 +6,7 @@
   "version": "1.0",
 
   "permissions": [
-    "https://172.16.177.222:8443/*", "https://console.turn.com/*", "notifications", "activeTab", "tabs"
+    "https://172.16.177.239:8443/*", "https://console.turn.com/*", "notifications", "activeTab", "tabs"
   ],
 
   "browser_action": {

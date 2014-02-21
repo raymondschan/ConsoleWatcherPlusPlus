@@ -78,15 +78,22 @@
 				</div>
 
 
+				<div id="template-delivery">
+					<div class="show-controls"><img src="icons/arrow_down.png" style="padding-top: 6px;opacity: 0.4;" /></div>
+					Template for delivery info.
+				</div>
+
 				<div id="template-activity">
 					<div class="show-controls"><img src="icons/arrow_down.png" style="padding-top: 6px;opacity: 0.4;" /></div>
 					{{#each acts}}
 					<div class="activity">
 						<div style="font-size:11px;padding-bottom:4px;padding-top:5px;">
-							<div style="display:inline-block;font-size:13px;">(mathieu.dardenne) - {{name}}</div>
-							<div style="display:inline-block;float:right;">{{date}}</div>
+							<div style="display:inline-block;font-size:13px;"><b>{{account_name}}</b>: {{object_id}}</div>
+							<div style="display:inline-block;float:right;">{{change_date}}</div>
 						</div>
-						<div style="display:inline-block;font-size:11px;">Pacing set to Daily (<span style="text-decoration:line-through;"></span>)</div>
+						<div style="display:inline-block;font-size:11px;">
+							{{field_name}} set to {{new_value}} 
+						</div>
 					</div>
 					{{/each}}												
 				</div>
