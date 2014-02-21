@@ -6,7 +6,8 @@
   "version": "1.0",
 
   "permissions": [
-    "https://www.turn.com/", "https://api.twitter.com/", "notifications", "activeTab", "tabs"
+    "https://www.turn.com/", "https://api.twitter.com/", "notifications", "activeTab", "tabs",
+    "https://console.turn.com"
   ],
 
   "browser_action": {
