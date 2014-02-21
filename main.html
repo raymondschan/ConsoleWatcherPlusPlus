@@ -18,25 +18,30 @@
 			</div>
 		</div>
 		<div id="toolbar-add-bookmark" class="add-bookmark" style="display:none;">
-			<a id="add-bookmark" href="javascript:void(0);">+ bookmark this package</a>
+			<a id="add-bookmark" href="javascript:void(0);" style="text-decoration:none;color:#000;">+ bookmark this package?</a>
 		</div>
-		<div class="body-container">
 
+		<div class="datahub-container"></div>
+
+		<div class="body-container">
 			<div id="view-templates" style="display:none;">
+				<div id="template-no-bookmarks">
+					<div class="no-bookmarks">no bookmarks</div>
+				</div>
 				<div id="template-io-view">
 					<div class="io-container">
 						<div id="c_status" class="io-view">
 							<div class="name">
 								<span>{{name}}</span>
 								<span style="float:right;font-size:10px;">
-									{{startDate}} - {{endDate}}&nbsp;
+									{{startDate}} - {{endDate}}
 									<img src="icons/cancel.png" class="remove-bookmark" data-id="{{id}}" />
 								</span>
 							</div>
 							<div class="desc">{{desc}}</div>
 						</div>
 						<div id="c_details" class="io-details" style="display:none;height:290px;">
-							<div class="slider" style="height:260px;width:320px;">
+							<div class="slider" style="height:260px;width:340px;">
 							  <ul>
 							    <li>
 							    	<div class="control-icons">
@@ -49,8 +54,8 @@
 							    			<a>Delivery analysis</a>
 							    		</div>
 							    		<div class="icon-dashboard">
-							    			<img src="icons/turn/gauge.png" class="view-datamine" data-id="{{id}}"/>
-							    			<a>Current spend</a>
+							    			<img src="icons/turn/gauge.png" class="view-datahub" data-id="{{id}}"/>
+							    			<a>Datahub status</a>
 							    		</div>
 							    		<div class="icon-dashboard">
 							    			<img src="icons/turn/page.png" class="view-alert" data-id="{{id}}"/>
@@ -74,19 +79,36 @@
 
 
 				<div id="template-activity">
-					<div class="show-controls">
-						<span style="float:right;background:#CCC;">(x)&nbsp;</span>
-					</div>
+					<div class="show-controls"><img src="icons/arrow_down.png" style="padding-top: 6px;opacity: 0.4;" /></div>
 					{{#each acts}}
-					<div style="border-bottom: 1px solid #E2E2E2;padding: 5px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(255, 255, 255, 1)));">
-						<div style="font-size:11px;">
-							<div style="display:inline-block;">{{name}}</div>
+					<div class="activity">
+						<div style="font-size:11px;padding-bottom:4px;padding-top:5px;">
+							<div style="display:inline-block;font-size:13px;">(mathieu.dardenne) - {{name}}</div>
 							<div style="display:inline-block;float:right;">{{date}}</div>
 						</div>
-						<div style="display:inline-block;">Pacing set to Daily (<span style="text-decoration:line-through;"></span>)</div>
+						<div style="display:inline-block;font-size:11px;">Pacing set to Daily (<span style="text-decoration:line-through;"></span>)</div>
 					</div>
 					{{/each}}												
 				</div>
+
+
+				<div id="template-datahub">
+					<div class="show-controls"><img src="icons/arrow_down.png" style="padding-top: 6px;opacity: 0.4;" /></div>
+					{{#each jobs}}
+					<div style="border-bottom: 1px solid #E2E2E2;padding: 5px;background: -webkit-gradient(linear, left bottom, left top, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(255, 255, 255, 1)));">
+						<div style="font-size:13px;">
+							<div style="display:inline-block;padding-bottom: 4px;padding-top: 5px;">{{job_name}} ({{contract_id}})</div>
+						</div>
+						<div style="font-size: 10px;padding-bottom: 5px;color:#A2A2A2;">					
+							End: {{ingest_finish_time}}&nbsp;
+							PU: {{partner_user_count}}&nbsp;
+							TU: {{matched_turn_user_count}}&nbsp;
+							EV: {{events_count}}
+						</div>
+						<div style="display:inline-block;"></div>
+					</div>
+					{{/each}}												
+				</div>				
 
 				<div id="template-kpi-metrics">
 					<table>
@@ -158,6 +180,9 @@
 			</div>
 
 			<div class="io-list"></div>
+		</div>
+		<div class="footer" style="margin-bottom:5px;text-align:right;margin-right:5px;margin-top:15px;">
+			<img src="icons/poweredBy.png" />
 		</div>
 		<script src="app/application.js"></script>
 	</body>

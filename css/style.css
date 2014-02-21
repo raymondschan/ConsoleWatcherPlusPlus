@@ -7,6 +7,11 @@ html,body {
 	font-size: 14px;
   width:340px;
 }
+
+* { _noFocusLine: expression(this.hideFocus=true); }
+::-moz-focus-inner {border:0;}                      
+:focus {outline:none;}                              
+
 body { }
 
 .body-container { height:420px;overflow: auto;overflow-x: none; }
@@ -42,7 +47,7 @@ body { }
   float: left;
   margin: 0;
   padding: 0;
-  width: 330px;
+  width: 360px;
   height: 380px;
 }
 
@@ -117,7 +122,8 @@ body { }
   width: 70px;
 }
 
-.icon-dashboard { float:left;width:150px;height: 83px;text-align:center;border: 1px solid #F7F7F7;padding: 5px;background: #FCFCFC; }
+.icon-dashboard { float:left;width:167px;height: 83px;text-align:center;border: 1px solid #F7F7F7;padding: 5px;background: #FCFCFC;padding-top: 20px; }
+.icon-dashboard:hover { background:#EEE; }
 .icon-dashboard img { height:40px; }
 .icon-dashboard a { display:block;margin-top:10px; }
 
@@ -125,3 +131,9 @@ body { }
 
 .add-bookmark { text-align:center;padding:10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(169,219,128,1)), color-stop(100%,rgba(132, 177, 95, 1))); }
 .add-bookmark a { color: #000;text-decoration: none;font-weight: 400;color:#4E4E4E;font-variant: small-caps; }
+
+.show-controls { height: 20px;background: #F7F7F7;text-align: center;}
+
+.activity { border-bottom: 1px solid #E2E2E2;padding: 5px;background: -webkit-gradient(linear, left bottom, left top, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(255, 255, 255, 1))); }
+
+.no-bookmarks { font-size: 20px;text-align: center;margin-top: 100px;font-weight: bold;color: #E2E2E2;letter-spacing: 2px; }
