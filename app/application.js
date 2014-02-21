@@ -10,10 +10,6 @@ jQuery(document).ready(function ($) {
 			window.location.href = 'main.html'
 		});
 
-		$('.header .title').on('click', function() {
-			proc.app.sendNotification();
-		});
-
 		$('#add-bookmark').on('click', function() {
 			if (proc.app.bookmarkNewObject() == 1) {
 				$('#toolbar-add-bookmark').slideUp();
