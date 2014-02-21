@@ -2,7 +2,6 @@
 	<head>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery-ui.min.js"></script>
-		<script src="js/handlebars-v1.3.0.js"></script>
 		
 		<link href="css/jquery-ui.min.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="css/style.css" media="all" rel="stylesheet" type="text/css"/>
@@ -10,92 +9,83 @@
 	</head>
 	<body>
 		<div class="header">
-			<div style="background:url('icons/header.png') no-repeat;background-size:300px;width:320px;height:43px;margin:5px;">
+			<div class="inner">
 				<div style="float:right;">
-					<div><img src="icons/refresh.png" id="app-title" /></div>
-					<div><a href="settings.html"><img src="icons/settings.png" /></a></div>
+					<div><img src="icons/refresh.png" id="app-refresh" /></div>
 				</div>
 				<div class="title">console watcher</div>
 
 			</div>
 		</div>
+		<div id="toolbar-add-bookmark" class="add-bookmark" style="display:none;">
+			<a id="add-bookmark" href="javascript:void(0);">+ bookmark this package</a>
+		</div>
 		<div class="body-container">
 
 			<div id="view-templates" style="display:none;">
 				<div id="template-io-view">
-					{{#each ios}}
 					<div class="io-container">
-						<div id="c_status" class="io-view" style="border-left:6px solid rgb(10, 128, 104);">
+						<div id="c_status" class="io-view">
 							<div class="name">
-								<span>{{title}}</span>
-								<span style="float:right;font-size:10px;">{{startDate}} - {{endDate}}</span>
+								<span>{{name}}</span>
+								<span style="float:right;font-size:10px;">
+									{{startDate}} - {{endDate}}&nbsp;
+									<img src="icons/cancel.png" class="remove-bookmark" data-id="{{id}}" />
+								</span>
 							</div>
 							<div class="desc">{{desc}}</div>
 						</div>
-						<div id="c_details" class="io-details" style="display:none;height:210px;">
-							<div class="slider" style="height:190px;width:320px;">
+						<div id="c_details" class="io-details" style="display:none;height:290px;">
+							<div class="slider" style="height:260px;width:320px;">
 							  <ul>
 							    <li>
-							    	<div>
-							    		<div style="float:left;width:150px;height: 83px;text-align:center;border: 1px solid #F7F7F7;padding: 5px;background: #FCFCFC;"><img src="icons/turn/money.png" style="height:40px;" /><div style="margin-top:10px;">Current spend</div></div>
-							    		<div style="float:left;width:150px;height: 83px;text-align:center;border: 1px solid #F7F7F7;padding: 5px;background: #FCFCFC;"><img src="icons/turn/channels.png" style="height:40px;" /><div style="margin-top:10px;">Media Channels</div></div>
-							    		<div style="float:left;width:150px;height: 83px;text-align:center;border: 1px solid #F7F7F7;padding: 5px;background: #FCFCFC;"><img src="icons/turn/gauge.png" style="height:40px;" /><div style="margin-top:10px;">Current spend</div></div>
-							    		<div style="float:left;width:150px;height: 83px;text-align:center;border: 1px solid #F7F7F7;padding: 5px;background: #FCFCFC;"><img src="icons/turn/page.png" style="height:40px;" /><div style="margin-top:10px;">Media Channels</div></div>
+							    	<div class="control-icons">
+							    		<div class="icon-dashboard">
+							    			<img src="icons/turn/money.png" class="view-activity" data-id="{{id}}"/>
+							    			<a>Package Activity</a>
+							    		</div>
+							    		<div class="icon-dashboard">
+							    			<img src="icons/turn/channels.png" class="view-delivery" data-id="{{id}}" />
+							    			<a>Delivery analysis</a>
+							    		</div>
+							    		<div class="icon-dashboard">
+							    			<img src="icons/turn/gauge.png" class="view-datamine" data-id="{{id}}"/>
+							    			<a>Current spend</a>
+							    		</div>
+							    		<div class="icon-dashboard">
+							    			<img src="icons/turn/page.png" class="view-alert" data-id="{{id}}"/>
+							    			<a>Alerts setup</a>
+							    		</div>
 							    	</div>
+							    	<div class="sub-view" style="display:none;"></div>
 							    </li>
 							    <li>
-							    	<div id="io-stats">
-							    		{{#applyTemplate "template-io-stats" stats="test"}}
-          									{{topLevelVar}}
-        								{{/applyTemplate }}
-							    	</div>
+							    	<div class="kpi-metrics"></div>
 							    </li>
 							  </ul>  
 							</div>
 							<div>
-								<a href="#" class="control_prev" style="float:left;margin-left:20px;font-size: 30px;text-decoration: none;line-height: 20px;">&laquo;</a>
-								<a href="#" class="control_next" style="float:right;margin-right:20px;font-size: 30px;text-decoration: none;line-height: 20px;">&raquo;</a>
+								<a href="#" class="control_prev slider-control" style="float:left;margin-left:15px">&laquo;</a>
+								<a href="#" class="control_next slider-control" style="">&raquo;</a>
 							</div>
 						</div>
 					</div>
-					{{/each}}
 				</div>
 
 
-				<div id="template-io-stats">
-					<div style="width:150px;font-size:10px;padding:5px;display:inline-block;">
-						<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" 
-				    		aria-valuemin="0" aria-valuemax="100" aria-valuenow="37" style="width:100px;height:15px;display:inline-block;">
-				    		<div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 37%;"></div>
-				    	</div>
-				    	<div style="display:inline-block;width:40px;">37%</div>
-				    	<div>
-				    		Yesterday spend
-				    	</div>
-			    	</div>
-
-					<div style="width:150px;font-size:10px;padding:5px;display:inline-block;">
-						<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" 
-				    		aria-valuemin="0" aria-valuemax="100" aria-valuenow="37" style="width:100px;height:15px;display:inline-block;">
-				    		<div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 37%;background-color:#777"></div>
-				    	</div>
-				    	<div style="display:inline-block;width:40px;">37%</div>
-				    	<div>
-				    		Yesterday spend
-				    	</div>
-			    	</div>
-
-					<div style="width:150px;font-size:10px;padding:5px;display:inline-block;">
-						<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" 
-				    		aria-valuemin="0" aria-valuemax="100" aria-valuenow="37" style="width:100px;height:15px;display:inline-block;">
-				    		<div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 37%;"></div>
-				    	</div>
-				    	<div style="display:inline-block;width:40px;">37%</div>
-				    	<div>
-				    		Yesterday spend
-				    	</div>
-			    	</div>			    	
-
+				<div id="template-activity">
+					<div class="show-controls">
+						<span style="float:right;background:#CCC;">(x)&nbsp;</span>
+					</div>
+					{{#each acts}}
+					<div style="border-bottom: 1px solid #E2E2E2;padding: 5px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(255, 255, 255, 1)));">
+						<div style="font-size:11px;">
+							<div style="display:inline-block;">{{name}}</div>
+							<div style="display:inline-block;float:right;">{{date}}</div>
+						</div>
+						<div style="display:inline-block;">Pacing set to Daily (<span style="text-decoration:line-through;"></span>)</div>
+					</div>
+					{{/each}}												
 				</div>
 
 				<div id="template-kpi-metrics">
@@ -165,17 +155,9 @@
 						<div class="clear"></div>
 					</div>
 				</div>
-
 			</div>
 
-			<div class="io-list">
-			<div class="io-container">
-					
-			</div>
-			</div>
-
-			<div class="kpi-metrics">
-			</div>
+			<div class="io-list"></div>
 		</div>
 		<script src="app/application.js"></script>
 	</body>

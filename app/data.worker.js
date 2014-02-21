@@ -1,18 +1,18 @@
 onmessage = function (oEvent) {
-	var cmd = oEvent.data.cmd;
+	var d = oEvent.data;
 
-	if (cmd == 'pull') {
-  		postMessage('' + parseInt(Math.random()*10));
-  	} else if (cmd == 'getios') {
-  		postMessage({type:'ioslist', value: 
-  			{ 
-  				ios:[
-					{title: "Zales Valentine's Day 2014", startDate: "01/02/2014 ", endDate: "01/03/2014", desc: "Short description of the IOs info"},
-					{title: "E-Trade FBX Q1", startDate: "01/02/2014 ", endDate: "01/03/2014", desc: "Short description of the IOs info"},
-					{title: "H&M Display Moms", startDate: "01/02/2014 ", endDate: "01/03/2014", desc: "Short description of the IOs info"}
-				]
-			}
-		});
+	if (d.cmd == 'pull') {
+  		postMessage(
+  			{type:'badge', value:parseInt(Math.random()*10)}
+  		);
+  	} else if (d.cmd == 'getios') {
+  		console.log('Webworker is pulling data for ' + d.ios);
+  		var ios = [];
+  		for (var i = 0; i < d.ios.length; i++) {
+  			ios.push({id:d.ios[i], title: d.ios[i], startDate: "01/02/2014 ", endDate: "01/03/2014", desc: "Short description of the IOs info"});
+  		}
+
+  		postMessage({type:'ioslist', value:ios});
   	} else {
   		console.log("dataworker: command not recognized.");
   	}

@@ -5,17 +5,22 @@ html,body {
 	font-weight: 100;
 	font-family: Helvetica, Arial;
 	font-size: 14px;
+  width:340px;
 }
 body { }
 
-.body-container { height:400px;overflow: auto;overflow-x: none; }
+.body-container { height:420px;overflow: auto;overflow-x: none; }
 
-.io-container .io-view { margin:0;padding:5px 10px;width:300px;}
+.io-container .io-view { margin:0;padding:5px 10px;border-bottom: 1px solid #F8F8F8;}
 .io-container .io-view:hover {background: #FCFCFC;}
 .io-container .io-view .desc { color:#CCC;font-size:12px; }
-.io-container .io-details { background:#FCFCFC;padding:0px;border-top: 1px solid #CCC;border-bottom: 5px solid #F5F6F7; }
+.io-container .io-details { background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(250, 250, 250, 1)));padding:0px;border-top: 1px solid #CCC;border-bottom: 5px solid #F5F6F7; }
 .header { background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.1,#e9f6fb),color-stop(0.3,#fff));border-bottom: 5px solid #F5B24D; }
+.header .inner { background:url('../icons/header.png') no-repeat;background-size:300px;width:320px;height:43px;margin:5px; }
 .header .title { font-size: 18px;margin-left: 135px;padding-top: 9px;font-weight: 900;color: rgba(77, 51, 45, 0.4);font-variant: small-caps; }
+
+
+
 
 .slider {
   position: relative;
@@ -27,7 +32,7 @@ body { }
   position: relative;
   margin: 0;
   padding: 0;
-  height: 200px;
+  height: 400px;
   list-style: none;
 }
 
@@ -38,8 +43,9 @@ body { }
   margin: 0;
   padding: 0;
   width: 330px;
-  height: 180px;
+  height: 380px;
 }
+
 
 .clear {
   clear: both;
@@ -52,6 +58,7 @@ body { }
 .kpi-metrics table {
   width: 100%;
   border-spacing: 0px;
+  border-bottom: 1px solid #F0F0F0;
 }
 
 .kpi-metrics th {
@@ -73,6 +80,7 @@ body { }
   color: #464f54;
   font-size: 13px;
   line-height: 40px;
+  text-align: right;
 }
 
 .kpi-metrics .bar-graph {
@@ -108,3 +116,12 @@ body { }
   text-align: right;
   width: 70px;
 }
+
+.icon-dashboard { float:left;width:150px;height: 83px;text-align:center;border: 1px solid #F7F7F7;padding: 5px;background: #FCFCFC; }
+.icon-dashboard img { height:40px; }
+.icon-dashboard a { display:block;margin-top:10px; }
+
+.slider-control { float:right;margin-right:20px;font-size: 30px;text-decoration: none;line-height: 20px; }
+
+.add-bookmark { text-align:center;padding:10px;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(169,219,128,1)), color-stop(100%,rgba(132, 177, 95, 1))); }
+.add-bookmark a { color: #000;text-decoration: none;font-weight: 400;color:#4E4E4E;font-variant: small-caps; }
